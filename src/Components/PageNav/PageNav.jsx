@@ -5,14 +5,14 @@ function PageNav() {
 
     return (
         <nav className={styles.pageNav}>
-            <ol>
+            <ul>
                 <li>
                     <Link to="homepage/">Home</Link>
                 </li>
                 <li>
                     <Link to="shop/">Shop</Link>
                 </li>
-            </ol>
+            </ul>
         </nav>
     );
 }
