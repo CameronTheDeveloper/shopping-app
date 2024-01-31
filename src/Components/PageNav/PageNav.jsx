@@ -4,7 +4,7 @@ import styles from "./PageNav.module.css";
 function PageNav() {
 
     return (
-        <nav className="pageNav">
+        <nav className={styles.pageNav}>
             <ol>
                 <li>
                     <Link to="homepage/">Home</Link>
