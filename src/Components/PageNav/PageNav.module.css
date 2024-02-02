@@ -1,10 +1,11 @@
 .pageNav {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .pageNav ul {
     list-style-type: none;
     display: flex;
+    place-content: center;
 }
 
 .pageNav ul li {
