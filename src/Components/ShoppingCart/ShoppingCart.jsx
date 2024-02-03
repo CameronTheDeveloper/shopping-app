@@ -5,7 +5,7 @@ import styles from "./ShoppingCart.module.css";
 
 function ShoppingCart({ cartItemsCount = 0 }) {
     return (
-        <div>
+        <div tabIndex={0}>
             <Icon path={mdiCartVariant}
                 size={2}
                 title={"Shopping Cart"}
