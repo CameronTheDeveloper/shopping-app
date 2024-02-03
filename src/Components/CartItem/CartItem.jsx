@@ -6,6 +6,7 @@ function CartItem({ title, price }) {
         <div className={styles.cartItem}>
             <h1>{title}</h1>
             <h2>{`$${price} USD`}</h2>
+            <button>Add To Cart</button>
         </div>
     );
 }
