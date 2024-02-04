@@ -10,13 +10,11 @@ function Router() {
             path: "/",
             element: <App />,
             errorElement: <ErrorPage />,
-            children: [
-                {
-                    path: "shop/",
-                    element: <ShopPage />,
-                }
-            ],
         },
+        {
+            path: "shop/",
+            element: <ShopPage />,
+        }
     ]);
 
     return <RouterProvider router={router} />;

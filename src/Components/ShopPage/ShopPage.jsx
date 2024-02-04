@@ -1,8 +1,13 @@
+import CartItem from "../CartItem/CartItem";
+import PageNav from "../PageNav/PageNav";
+
 function ShopPage() {
+
     return (
-        <div id="shopPage">
-            ShopPage
-        </div>
+        <>
+            <PageNav></PageNav>
+            <main></main>
+        </>
     );
 }
 
