@@ -12,10 +12,6 @@ function Router() {
             errorElement: <ErrorPage />,
             children: [
                 {
-                    path: "homepage/",
-                    element: <HomePage />,
-                },
-                {
                     path: "shop/",
                     element: <ShopPage />,
                 }

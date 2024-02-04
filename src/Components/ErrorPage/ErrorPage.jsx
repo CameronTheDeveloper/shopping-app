@@ -5,7 +5,7 @@ function ErrorPage() {
     return (
         <div>
             <h1>Oh no, this route doesn't exist!</h1>
-            <Link to="homepage/">Return to home</Link>
+            <Link to="/">Return to home</Link>
         </div>
     );
 }
