@@ -14,6 +14,8 @@ function CartItem({ title, price }) {
         <div className={styles.cartItem}>
             <h1>{title}</h1>
             <h2>{`$${price} USD`}</h2>
+            <button onClick={() => setAmount(amount + 1)}>+</button>
+            <button onClick={() => setAmount(amount - 1)}>-</button>
             <input type="number" value={amount} onChange={changeAmount}></input>
             <button>Add To Cart</button>
         </div>
