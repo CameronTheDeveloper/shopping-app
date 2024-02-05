@@ -7,8 +7,14 @@ function App() {
 
   return (
     <>
-      <PageNav></PageNav>
-      <Outlet></Outlet>
+
+      <header>
+        <PageNav></PageNav>
+      </header>
+      <main>
+        <Outlet></Outlet>
+      </main>
+
     </>
   );
 }
