@@ -6,6 +6,7 @@
     list-style-type: none;
     display: flex;
     place-content: center;
+    padding: 1rem;
 }
 
 .pageNav ul li {
