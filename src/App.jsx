@@ -1,5 +1,6 @@
 import PageNav from './Components/PageNav/PageNav';
 import HomePage from './Components/HomePage/HomePage';
+import { Outlet } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <PageNav></PageNav>
-      <HomePage></HomePage>
+      <Outlet></Outlet>
     </>
   );
 }
