@@ -1,6 +1,6 @@
 import PageNav from './Components/PageNav/PageNav';
-import HomePage from './Components/HomePage/HomePage';
 import { Outlet } from 'react-router-dom';
+import ShoppingCart from './Components/ShoppingCart/ShoppingCart';
 import './App.css';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
 
       <header>
         <PageNav></PageNav>
+        <ShoppingCart></ShoppingCart>
       </header>
       <main>
         <Outlet></Outlet>
