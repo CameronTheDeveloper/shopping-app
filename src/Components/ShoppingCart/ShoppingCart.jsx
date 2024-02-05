@@ -5,13 +5,14 @@ import styles from "./ShoppingCart.module.css";
 
 function ShoppingCart({ cartItemsCount = 0 }) {
     return (
-        <div tabIndex={0} className={styles.cart}>
+        <button className={styles.cart}>
             <Icon path={mdiCartVariant}
                 size={2}
                 title={"Shopping Cart"}
             ></Icon>
             <div>{cartItemsCount}</div>
-        </div>
+            <div>Checkout</div>
+        </button>
     );
 }
 
