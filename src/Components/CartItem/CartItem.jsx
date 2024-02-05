@@ -16,8 +16,10 @@ function CartItem({ title, price }) {
             <h2>{`$${price} USD`}</h2>
             <button onClick={() => setAmount(amount + 1)}>+</button>
             <button onClick={() => setAmount(amount - 1)}>-</button>
-            <input type="number" value={amount} onChange={changeAmount}></input>
-            <button>Add To Cart</button>
+            <form action="">
+                <input type="number" value={amount} onChange={changeAmount}></input>
+                <button type="submit">Add To Cart</button>
+            </form>
         </div>
     );
 }
