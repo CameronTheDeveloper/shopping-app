@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HomePage component > render correct content 1`] = `
+<DocumentFragment>
+  <h1>
+    Welcome to Shopping App
+  </h1>
+  <h2>
+    Shop in the comfort of your own home!
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`HomePage component > renders correct content 1`] = `
+<DocumentFragment>
+  <h1>
+    Welcome to Shopping App
+  </h1>
+  <h2>
+    Shop in the comfort of your own home!
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`HomePage component > renders correctly 1`] = `
+<DocumentFragment>
+  <h1>
+    Welcome to Shopping App
+  </h1>
+  <h2>
+    Shop in the comfort of your own home!
+  </h2>
+</DocumentFragment>
+`;
