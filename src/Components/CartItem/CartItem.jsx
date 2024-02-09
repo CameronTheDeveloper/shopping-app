@@ -19,7 +19,8 @@ function CartItem({ title, price }) {
                 <button disabled={amount <= 0} onClick={() => setAmount(amount - 1)}>-</button>
             </div>
             <form action="">
-                <input type="number" value={amount} onChange={changeAmount}></input>
+                <label htmlFor="itemAmount">amount</label>
+                <input name="itemAmount" id="itemAmount" type="number" value={amount} onChange={changeAmount}></input>
                 <button type="submit">Add To Cart</button>
             </form>
         </div>
