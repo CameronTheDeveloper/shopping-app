@@ -21,6 +21,16 @@ describe('Cart Item', () => {
             await user.click(button);
             expect(screen.getByLabelText('amount').value).toBe("1");
         });
+
+        it('decrement button subtracts 1', async () => {
+            const addButton = screen.getByRole('button', { name: /\+/i });
+            const subtractButton = screen.getByRole('button', { name: /-/i });
+            await user.click(addButton);
+            await user.click(addButton);
+            await user.click(addButton);
+            await user.click(subtractButton);
+            expect(screen.getByLabelText('amount').value).toBe("2");
+        });
     });
 
 });
