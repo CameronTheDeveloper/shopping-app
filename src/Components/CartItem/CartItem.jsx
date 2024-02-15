@@ -6,8 +6,8 @@ import styles from "./CartItem.module.css";
 function CartItem({ title, price }) {
     const [amount, setAmount] = useState(0);
 
-    const changeAmount = (e) => {
-        setAmount(e.target.value);
+    const changeAmount = (value) => {
+        setAmount(value);
     };
 
     return (
@@ -15,12 +15,12 @@ function CartItem({ title, price }) {
             <h1>{title}</h1>
             <h2>{`$${price} USD`}</h2>
             <div>
-                <button onClick={() => setAmount(amount + 1)}>+</button>
-                <button disabled={amount <= 0} onClick={() => setAmount(amount - 1)}>-</button>
+                <button onClick={() => changeAmount(amount + 1)}>+</button>
+                <button disabled={amount <= 0} onClick={() => changeAmount(amount - 1)}>-</button>
             </div>
             <form action="">
                 <label htmlFor="itemAmount">amount</label>
-                <input name="itemAmount" id="itemAmount" type="number" value={amount} onChange={changeAmount}></input>
+                <input name="itemAmount" id="itemAmount" type="number" value={amount} onChange={(e) => changeAmount(e.target.value)}></input>
                 <button type="submit">Add To Cart</button>
             </form>
         </div>
