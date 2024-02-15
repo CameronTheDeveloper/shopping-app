@@ -31,6 +31,12 @@ describe('Cart Item', () => {
             await user.click(subtractButton);
             expect(screen.getByLabelText('amount').value).toBe("2");
         });
+
+        it('decrement button does not decrement to less than 0', async () => {
+            const subtractButton = screen.getByRole('button', { name: /-/i });
+            await user.click(subtractButton);
+            expect(screen.getByLabelText('amount').value).toBe("0");
+        });
     });
 
 });
