@@ -7,7 +7,7 @@ function CartItem({ title, price }) {
     const [amount, setAmount] = useState(0);
 
     const changeAmount = (value) => {
-        setAmount(value);
+        setAmount(+value);
     };
 
     return (
