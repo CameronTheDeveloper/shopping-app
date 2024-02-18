@@ -1,9 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./CartItem.module.css";
+import styles from "./ShopItem.module.css";
 
 
-function CartItem({ title, price }) {
+function ShopItem({ title, price }) {
     const [amount, setAmount] = useState(0);
 
     const changeAmount = (value) => {
@@ -11,7 +11,7 @@ function CartItem({ title, price }) {
     };
 
     return (
-        <div className={styles.cartItem}>
+        <div className={styles.ShopItem}>
             <h1>{title}</h1>
             <h2>{`$${price} USD`}</h2>
             <div>
@@ -27,9 +27,9 @@ function CartItem({ title, price }) {
     );
 }
 
-CartItem.propTypes = {
+ShopItem.propTypes = {
     title: PropTypes.string,
     price: PropTypes.number,
 };
 
-export default CartItem;
+export default ShopItem;

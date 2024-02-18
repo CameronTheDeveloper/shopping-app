@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import CartItem from '../Components/CartItem/CartItem';
+import ShopItem from '../Components/ShopItem/ShopItem';
 
 describe('Cart Item', () => {
     describe('item count input', () => {
@@ -9,7 +9,7 @@ describe('Cart Item', () => {
 
         beforeEach(() => {
             user = userEvent.setup();
-            render(<CartItem></CartItem>);
+            render(<ShopItem></ShopItem>);
         });
 
         it('displays initial value of 0', () => {

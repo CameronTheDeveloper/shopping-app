@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getShopData } from "../get-shop-data";
-import CartItem from "../CartItem/CartItem";
+import ShopItem from "../ShopItem/ShopItem";
 import styles from "./ShopPage.module.css";
 
 function ShopPage() {

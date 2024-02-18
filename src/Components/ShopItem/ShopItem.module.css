@@ -1,10 +1,10 @@
-.cartItem {
+.ShopItem {
     border: 1px dashed white;
     border-radius: 5%;
 }
 
 @media (prefers-color-scheme: light) {
-    .cartItem {
+    .ShopItem {
         border: 1px dashed rgb(0, 0, 0);
     }
 }
