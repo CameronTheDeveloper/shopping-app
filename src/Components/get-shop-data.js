@@ -1,14 +1,16 @@
-const getShopData = (setShopData, setError, setLoading) => {
-    fetch('https://fakestoreapi.com/products')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response error');
-            }
-            return response.json();
-        })
-        .then(json => setShopData(json))
-        .catch(error => setError(error))
-        .finally(() => setLoading(false));
+const getShopData = async (setShopData, setError, setLoading) => {
+    try {
+        const response = await fetch('https://fakestoreapi.com/products', { mode: "cors" });
+        if (!response.ok) {
+            throw new Error('Network response error');
+        }
+        const data = await response.json();
+        setShopData(data);
+    } catch (error) {
+        setError(error);
+    } finally {
+        setLoading(false);
+    }
 };
 
 export { getShopData };
