@@ -1,6 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 import ShopPage from "../Components/ShopPage/ShopPage";
+import { getShopData } from "../Components/get-shop-data";
 
+
+vi.mock("../Components/get-shop-data");
 
 describe('ShopPage', () => {
 
