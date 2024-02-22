@@ -3,6 +3,21 @@ import userEvent from "@testing-library/user-event";
 import ShopItem from '../Components/ShopItem/ShopItem';
 
 describe('Cart Item', () => {
+
+    describe('item info', () => {
+        beforeEach(() => {
+            render(<ShopItem title="foo" price="53.5"></ShopItem>);
+        });
+        it('displays title', () => {
+            const title = screen.getByRole("heading", { name: "foo" });
+            expect(title).toBeInTheDocument();
+        });
+        it('displays price', () => {
+            const price = screen.getByRole("heading", { name: "53.50" });
+            expect(price).toBeInTheDocument();
+        });
+    });
+
     describe('item count input', () => {
 
         let user;
