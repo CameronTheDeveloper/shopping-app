@@ -10,6 +10,7 @@ describe('ShopPage', () => {
 
     it('displays loading message before shop data is fetched', () => {
         render(<ShopPage></ShopPage>);
-        expect(screen.getByRole("heading").textContent).toMatch(/loading shop products/i);
+        const loadMessage = screen.getByRole("heading", { name: /loading shop products/i });
+        expect(loadMessage).toBeInTheDocument();
     });
 });
