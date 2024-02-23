@@ -6,14 +6,14 @@ describe('ShopItem', () => {
 
     describe('item info', () => {
         beforeEach(() => {
-            render(<ShopItem title="foo" price="53.5"></ShopItem>);
+            render(<ShopItem title="foo" price={53.5}></ShopItem>);
         });
         it('displays title', () => {
-            const title = screen.getByRole("heading", { name: "foo" });
+            const title = screen.getByRole("heading", { name: /foo/ });
             expect(title).toBeInTheDocument();
         });
-        it('displays price', () => {
-            const price = screen.getByRole("heading", { name: "53.50" });
+        it('displays price with two decimal places', () => {
+            const price = screen.getByRole("heading", { name: /53.50/ });
             expect(price).toBeInTheDocument();
         });
     });
