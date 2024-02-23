@@ -5,17 +5,30 @@ import ShopItem from '../Components/ShopItem/ShopItem';
 describe('ShopItem', () => {
 
     describe('item info', () => {
-        beforeEach(() => {
-            render(<ShopItem title="foo" price={53.5}></ShopItem>);
-        });
         it('displays title', () => {
+            render(<ShopItem title="foo" price={53.5}></ShopItem>);
             const title = screen.getByRole("heading", { name: /foo/ });
             expect(title).toBeInTheDocument();
         });
-        it('displays price with two decimal places', () => {
+
+        it('displays price', () => {
+            render(<ShopItem title="foo" price={53.55}></ShopItem>);
+            const price = screen.getByRole("heading", { name: /53.55/ });
+            expect(price).toBeInTheDocument();
+        });
+
+        it('displays price with two decimal places if price is passed with only one decimal place', () => {
+            render(<ShopItem title="foo" price={53.5}></ShopItem>);
             const price = screen.getByRole("heading", { name: /53.50/ });
             expect(price).toBeInTheDocument();
         });
+
+        it('displays price with two decimal places if price is passed with no decimal places', () => {
+            render(<ShopItem title="foo" price={53}></ShopItem>);
+            const price = screen.getByRole("heading", { name: /53.00/ });
+            expect(price).toBeInTheDocument();
+        });
+
     });
 
     describe('item count input', () => {
