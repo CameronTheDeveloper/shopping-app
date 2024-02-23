@@ -37,7 +37,7 @@ describe('ShopItem', () => {
 
         beforeEach(() => {
             user = userEvent.setup();
-            render(<ShopItem></ShopItem>);
+            render(<ShopItem title="foo" price={53.55}></ShopItem>);
         });
 
         it('displays initial value of 0', () => {
