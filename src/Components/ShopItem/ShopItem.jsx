@@ -16,7 +16,6 @@ function ShopItem({ title, price }) {
         <div className={styles.ShopItem}>
             <h1>{title}</h1>
             <h2>{`$${formattedPrice} USD`}</h2>
-            {/* <h2>{`$${price} USD`}</h2> */}
             <div>
                 <button onClick={() => changeAmount(amount + 1)}>+</button>
                 <button disabled={amount <= 0} onClick={() => changeAmount(amount - 1)}>-</button>
