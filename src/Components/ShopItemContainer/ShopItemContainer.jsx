@@ -1,7 +1,25 @@
 import styles from "./ShopItemContainer.module.css";
+import PropTypes from "prop-types";
+import ShopItem from "../ShopItem/ShopItem";
 
-function ShopItemContainer() {
+function ShopItemContainer({shopData}) {
 
+    return (
+        <ul>
+            {shopData.map(item => (
+                <li key={item.key}>
+                    <ShopItem 
+                    title={item.title}
+                    price={item.price}
+                    ></ShopItem>
+                </li>
+            ))}   
+        </ul>
+    )
+}
+
+ShopItemContainer.propTypes = {
+    shopData: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default ShopItemContainer;
