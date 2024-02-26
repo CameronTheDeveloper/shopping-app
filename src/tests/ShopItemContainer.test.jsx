@@ -4,10 +4,12 @@ import { render, screen } from "@testing-library/react";
 
 const shopDataMock = [
     {
+        key: 1,
         title: "Foo",
         price: 5.55
     },
     {
+        key: 2,
         title: "Bar",
         price: 2.55
     }
@@ -22,7 +24,7 @@ vi.mock("../Components/ShopItem/ShopItem", () => ({title, price}) => {
 });
 
 describe("ShopItemContainer", () => {
-    it("displays shop products to the user from data", () => {
+    it("displays shop products to the user when passed shop data", () => {
         render(
         <ShopItemContainer 
             shopData={shopDataMock}
