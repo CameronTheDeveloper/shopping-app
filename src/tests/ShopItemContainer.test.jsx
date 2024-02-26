@@ -15,14 +15,14 @@ const shopDataMock = [
     }
 ];
 
-vi.mock("../Components/ShopItem/ShopItem", () => ({title, price}) => {
-    return (
-        <li>
-            {`${title} ${price}`}
-        </li>
-    )
-});
-
+vi.mock("../Components/ShopItem/ShopItem", () => ({
+    default: ({ title, price }) => (
+      <li>
+        {`${title} ${price}`}
+      </li>
+    ),
+}));
+  
 describe("ShopItemContainer", () => {
     it("displays shop products to the user when passed shop data", () => {
         render(
