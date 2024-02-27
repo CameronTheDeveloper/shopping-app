@@ -26,7 +26,7 @@ vi.mock("../Components/ShopItemContainer/ShopItemContainer", () => ({
 describe('ShopPage', () => {
 
     it('displays loading message before shop data is fetched', () => {
-        getShopData.mockImplementationOnce((setData, setLoading, setError) => {
+        getShopData.mockImplementationOnce((setData, setError, setLoading) => {
             setLoading(true);
         });
         render(<ShopPage></ShopPage>);//Problem: ShopPage needs to be rendered here without calling effect
@@ -35,7 +35,7 @@ describe('ShopPage', () => {
     });
 
     it('displays error page when data fails to fetch', async () => {
-        getShopData.mockImplementationOnce((setData, setLoading, setError) => {
+        getShopData.mockImplementationOnce((setData, setError, setLoading) => {
             setError(true);
             setLoading(false);
         });
@@ -49,7 +49,7 @@ describe('ShopPage', () => {
     })
 
     it('displays item container when data is fetched', async () => {
-        getShopData.mockImplementationOnce((setData, setLoading, setError) => {
+        getShopData.mockImplementationOnce((setData, setError, setLoading) => {
             setData("mockData");
             setLoading(false);
         })
