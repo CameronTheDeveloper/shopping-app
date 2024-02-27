@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { expect, vi } from "vitest";
+import { expect, it, vi } from "vitest";
 import ShopPage from "../Components/ShopPage/ShopPage";
 import { getShopData } from "../Components/get-shop-data";
 import { act } from "react-dom/test-utils";
@@ -30,9 +30,23 @@ describe('ShopPage', () => {
             setLoading(true);
         });
         render(<ShopPage></ShopPage>);//Problem: ShopPage needs to be rendered here without calling effect
-        const loadMessage = screen.getByRole("heading", { name: /loading shop products/i });
-        expect(loadMessage).toBeInTheDocument();
+        const errorMessage = screen.getByRole("heading", { name: /loading shop products/i });
+        expect(errorMessage).toBeInTheDocument();
     });
+
+    it('displays error page when data fails to fetch', async () => {
+        getShopData.mockImplementationOnce((setData, setLoading, setError) => {
+            setError(true);
+            setLoading(false);
+        });
+
+        await act(async () => {
+            render(<ShopPage></ShopPage>)
+        })
+
+        const errorMessage = screen.getByRole("heading", { name: /A network error ocurred/i });
+        expect(errorMessage).toBeInTheDocument();
+    })
 
     it('displays item container when data is fetched', async () => {
         getShopData.mockImplementationOnce((setData, setLoading, setError) => {
