@@ -26,6 +26,9 @@ vi.mock("../Components/ShopItemContainer/ShopItemContainer", () => ({
 describe('ShopPage', () => {
 
     it('displays loading message before shop data is fetched', () => {
+        getShopData.mockImplementationOnce((setData, setLoading, setError) => {
+            setLoading(true);
+        });
         render(<ShopPage></ShopPage>);//Problem: ShopPage needs to be rendered here without calling effect
         const loadMessage = screen.getByRole("heading", { name: /loading shop products/i });
         expect(loadMessage).toBeInTheDocument();
