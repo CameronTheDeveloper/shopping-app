@@ -5,7 +5,7 @@ import ShopItem from "../ShopItem/ShopItem";
 function ShopItemContainer({shopData}) {
 
     return (
-        <ul>
+        <ul className={styles.shopList}>
             {shopData.map(item => (
                 <li key={item.key}>
                     <ShopItem 
