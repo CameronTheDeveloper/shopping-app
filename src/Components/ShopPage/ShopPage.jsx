@@ -10,7 +10,7 @@ function ShopPage() {
 
     useEffect(() => {
         let ignore = false;
-        !ignore && getShopData(setShopData, setShopDataLoading, setShopDataError);
+        !ignore && getShopData(setShopData, setShopDataError, setShopDataLoading);
 
         return () => {
             ignore = true
