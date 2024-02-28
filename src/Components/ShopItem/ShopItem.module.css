@@ -11,11 +11,16 @@
     }
 }
 
+.inputContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .btnContainer{
     display: grid;
 }
 
 .btnContainer button {
-    font-size: 2rem;
-    padding: 0.5rem;
+    font-size: 1.5rem;
+    padding: 0.2rem;
 }

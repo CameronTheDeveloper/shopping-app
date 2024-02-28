@@ -29,15 +29,17 @@ function ShopItem({ title, price }) {
         <div className={styles.ShopItem}>
             <h2>{title}</h2>
             <h3>{`$${formattedPrice} USD`}</h3>
-            <div className={styles.btnContainer}>
-                <button onClick={() => changeAmount(amount + 1)}>+</button>
-                <button disabled={amount <= 0} onClick={() => changeAmount(amount - 1)}>-</button>
+            <div className={styles.inputContainer}>
+                <div className={styles.btnContainer}>
+                    <button onClick={() => changeAmount(amount + 1)}>+</button>
+                    <button disabled={amount <= 0} onClick={() => changeAmount(amount - 1)}>-</button>
+                </div>
+                <form action="" onSubmit={(e) => handlePurchase(e)}>
+                    <label htmlFor="itemAmount">amount</label>
+                    <input name="itemAmount" id="itemAmount" type="number" min="0" value={amount} onChange={(e) => handleUserInput(e)}></input>
+                    <button type="submit">Add To Cart</button>
+                </form>
             </div>
-            <form action="" onSubmit={(e) => handlePurchase(e)}>
-                <label htmlFor="itemAmount">amount</label>
-                <input name="itemAmount" id="itemAmount" type="number" min="0" value={amount} onChange={(e) => handleUserInput(e)}></input>
-                <button type="submit">Add To Cart</button>
-            </form>
         </div>
     );
 }
