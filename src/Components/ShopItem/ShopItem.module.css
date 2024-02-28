@@ -10,3 +10,12 @@
         border: 4px double rgb(0, 0, 0);
     }
 }
+
+.btnContainer{
+    display: grid;
+}
+
+.btnContainer button {
+    font-size: 2rem;
+    padding: 0.5rem;
+}
