@@ -18,6 +18,7 @@ function ShopItem({ title, price }) {
     const handlePurchase = (e) => {
         e.preventDefault();
         changeCartTotal(totalPriceBought);
+        changeAmount(0);
     }
 
     return (
