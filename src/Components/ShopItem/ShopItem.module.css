@@ -11,6 +11,12 @@
     }
 }
 
+@media (min-width: 600px){
+    .ShopItem{
+        margin: 2.5rem;
+    }
+}
+
 form{
     display: grid;
     grid-template-rows: 1fr 1fr 2fr;
