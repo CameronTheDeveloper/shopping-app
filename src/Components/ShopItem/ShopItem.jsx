@@ -15,6 +15,10 @@ function ShopItem({ title, price }) {
         setAmount(+value);
     };
 
+    const handleUserInput = (e) => {
+        setAmount(e.target.value)
+    }
+
     const handlePurchase = (e) => {
         e.preventDefault();
         changeCartTotal(totalPriceBought);
@@ -31,7 +35,7 @@ function ShopItem({ title, price }) {
             </div>
             <form action="" onSubmit={(e) => handlePurchase(e)}>
                 <label htmlFor="itemAmount">amount</label>
-                <input name="itemAmount" id="itemAmount" value={amount} onChange={(e) => changeAmount(e.target.value)}></input>
+                <input name="itemAmount" id="itemAmount" type="number" min="0" value={amount} onChange={(e) => handleUserInput(e)}></input>
                 <button type="submit">Add To Cart</button>
             </form>
         </div>
