@@ -1,3 +1,6 @@
 ul.shopList{
     list-style-type: none;
+    display: grid;
+    place-content: center;
+    padding: 1rem;
 }
