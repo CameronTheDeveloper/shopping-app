@@ -7,7 +7,7 @@ function ShopItemContainer({shopData}) {
     return (
         <ul className={styles.shopList}>
             {shopData.map(item => (
-                <li key={item.key}>
+                <li key={item.id}>
                     <ShopItem 
                     title={item.title}
                     price={item.price}
