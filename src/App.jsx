@@ -1,8 +1,13 @@
 import PageNav from './Components/PageNav/PageNav';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import ShoppingCart from './Components/ShoppingCart/ShoppingCart';
 import './App.css';
+
+
+export const ShopContext = createContext({
+  changeCartTotal: () => {}
+});
 
 function App() {
 
@@ -19,7 +24,9 @@ function App() {
         <ShoppingCart cartTotal={cartTotal}></ShoppingCart>
       </header>
       <main>
-        <Outlet></Outlet>
+        <ShopContext.Provider value={{changeCartTotal}}>
+          <Outlet></Outlet>
+        </ShopContext.Provider>
       </main>
     </>
   );
