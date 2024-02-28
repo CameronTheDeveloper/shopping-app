@@ -7,7 +7,7 @@ function ShoppingCart({ cartTotal = 0 }) {
     return (
         <button className={styles.cart}>
             <Icon path={mdiCartVariant}
-                size={2}
+                size={1}
                 title={"Shopping Cart"}
             ></Icon>
             <div>{`$ ${cartTotal}`}</div>

@@ -1,6 +1,6 @@
 .cart {
-    font-size: 0.8em;
-    position: absolute;
-    left: 75%;
+    font-size: 0.5em;
+    position: fixed;
+    left: 85%;
     top: 2%;
 }
