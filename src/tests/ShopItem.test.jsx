@@ -89,4 +89,31 @@ describe('ShopItem', () => {
         })
     });
 
+    describe('Add To Cart button', () => {
+        let user;
+
+        beforeEach(() => {
+            user = userEvent.setup();
+            render(<ShopItem title="foo" price={53.55}></ShopItem>);
+        });
+        
+        it('is disabled when item amount is 0', async () => {
+            const addToCartButton = screen.getByRole('button', {name: /Add To Cart/i});
+            const subtractButton = screen.getByRole('button', { name: /-/i });
+            const addButton = screen.getByRole('button', { name: /\+/i });
+            expect(addToCartButton).toBeDisabled();
+            await user.click(addButton);
+            await user.click(subtractButton);
+            expect(addToCartButton).toBeDisabled();
+        });
+
+        it('is not disabled when item amount is more than 0', async () => {
+            const addToCartButton = screen.getByRole('button', {name: /Add To Cart/i});
+            const addButton = screen.getByRole('button', { name: /\+/i });
+            await user.click(addButton);
+            expect(addToCartButton).not.toBeDisabled();
+        });
+
+
+    });
 });
