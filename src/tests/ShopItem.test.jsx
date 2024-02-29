@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ShopItem from '../Components/ShopItem/ShopItem';
-import { describe, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 describe('ShopItem', () => {
 
@@ -54,6 +54,22 @@ describe('ShopItem', () => {
         })
 
         describe('Decrement button', () => {
+            it('is disabled when item amount is 0', async () => {
+                const subtractButton = screen.getByRole('button', { name: /-/i });
+                const addButton = screen.getByRole('button', { name: /\+/i });
+                expect(subtractButton).toBeDisabled();
+                await user.click(addButton);
+                await user.click(subtractButton);
+                expect(subtractButton).toBeDisabled();
+            });
+
+            it('is not disabled when item amount is more than 0', async () => {
+                const subtractButton = screen.getByRole('button', { name: /-/i });
+                const addButton = screen.getByRole('button', { name: /\+/i });
+                await user.click(addButton);
+                expect(subtractButton).not.toBeDisabled();
+            });
+
             it('subtracts 1 after being clicked', async () => {
                 const addButton = screen.getByRole('button', { name: /\+/i });
                 const subtractButton = screen.getByRole('button', { name: /-/i });
