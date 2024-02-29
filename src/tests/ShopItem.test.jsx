@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ShopItem from '../Components/ShopItem/ShopItem';
+import { describe, expect } from "vitest";
 
 describe('ShopItem', () => {
 
@@ -44,27 +45,32 @@ describe('ShopItem', () => {
             expect(screen.getByLabelText('amount').value).toBe("0");
         });
 
-        it('increment button adds 1', async () => {
-            const button = screen.getByRole('button', { name: /\+/i });
-            await user.click(button);
-            expect(screen.getByLabelText('amount').value).toBe("1");
-        });
+        describe('Increment button', () => {
+            it('adds 1 after user clicks', async () => {
+                const button = screen.getByRole('button', { name: /\+/i });
+                await user.click(button);
+                expect(screen.getByLabelText('amount').value).toBe("1");
+            });
+        })
 
-        it('decrement button subtracts 1', async () => {
-            const addButton = screen.getByRole('button', { name: /\+/i });
-            const subtractButton = screen.getByRole('button', { name: /-/i });
-            await user.click(addButton);
-            await user.click(addButton);
-            await user.click(addButton);
-            await user.click(subtractButton);
-            expect(screen.getByLabelText('amount').value).toBe("2");
-        });
-
-        it('decrement button does not decrement to less than 0', async () => {
-            const subtractButton = screen.getByRole('button', { name: /-/i });
-            await user.click(subtractButton);
-            expect(screen.getByLabelText('amount').value).toBe("0");
-        });
+        describe('Decrement button', () => {
+            it('subtracts 1 after being clicked', async () => {
+                const addButton = screen.getByRole('button', { name: /\+/i });
+                const subtractButton = screen.getByRole('button', { name: /-/i });
+                await user.click(addButton);
+                await user.click(addButton);
+                await user.click(addButton);
+                await user.click(subtractButton);
+                expect(screen.getByLabelText('amount').value).toBe("2");
+            });
+    
+            it('does not decrement to less than 0', async () => {
+                const subtractButton = screen.getByRole('button', { name: /-/i });
+                await user.click(subtractButton);
+                expect(screen.getByLabelText('amount').value).toBe("0");
+                expect(subtractButton).toHaveAttribute("disabled");
+            });
+        })
     });
 
 });
