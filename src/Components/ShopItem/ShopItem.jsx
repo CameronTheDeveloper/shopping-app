@@ -37,7 +37,7 @@ function ShopItem({ title, price }) {
                 <form action="" onSubmit={(e) => handlePurchase(e)}>
                     <label htmlFor="itemAmount">amount</label>
                     <input name="itemAmount" id="itemAmount" type="number" min="0" value={amount} onChange={(e) => handleUserInput(e)}></input>
-                    <button type="submit">Add To Cart</button>
+                    <button disabled={amount <= 0} type="submit">Add To Cart</button>
                 </form>
             </div>
         </div>
