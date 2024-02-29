@@ -47,16 +47,16 @@ describe('ShopItem', () => {
 
         describe('Increment button', () => {
             it('adds 1 after user clicks', async () => {
-                const button = screen.getByRole('button', { name: /\+/i });
-                await user.click(button);
+                const addButton = screen.getByRole('button', { name: /add button/i });
+                await user.click(addButton);
                 expect(screen.getByLabelText('amount').value).toBe("1");
             });
         })
 
         describe('Decrement button', () => {
             it('is disabled when item amount is 0', async () => {
-                const subtractButton = screen.getByRole('button', { name: /-/i });
-                const addButton = screen.getByRole('button', { name: /\+/i });
+                const subtractButton = screen.getByRole('button', { name: /subtract button/i });
+                const addButton = screen.getByRole('button', { name: /add button/i });
                 expect(subtractButton).toBeDisabled();
                 await user.click(addButton);
                 await user.click(subtractButton);
@@ -64,15 +64,15 @@ describe('ShopItem', () => {
             });
 
             it('is not disabled when item amount is more than 0', async () => {
-                const subtractButton = screen.getByRole('button', { name: /-/i });
-                const addButton = screen.getByRole('button', { name: /\+/i });
+                const subtractButton = screen.getByRole('button', { name: /subtract button/i });
+                const addButton = screen.getByRole('button', { name: /add button/i });
                 await user.click(addButton);
                 expect(subtractButton).not.toBeDisabled();
             });
 
             it('subtracts 1 after being clicked', async () => {
-                const addButton = screen.getByRole('button', { name: /\+/i });
-                const subtractButton = screen.getByRole('button', { name: /-/i });
+                const addButton = screen.getByRole('button', { name: /add button/i });
+                const subtractButton = screen.getByRole('button', { name: /subtract button/i });
                 await user.click(addButton);
                 await user.click(addButton);
                 await user.click(addButton);
@@ -81,7 +81,7 @@ describe('ShopItem', () => {
             });
     
             it('does not decrement to less than 0', async () => {
-                const subtractButton = screen.getByRole('button', { name: /-/i });
+                const subtractButton = screen.getByRole('button', { name: /subtract button/i });
                 await user.click(subtractButton);
                 expect(screen.getByLabelText('amount').value).toBe("0");
                 expect(subtractButton).toHaveAttribute("disabled");
@@ -99,8 +99,8 @@ describe('ShopItem', () => {
         
         it('is disabled when item amount is 0', async () => {
             const addToCartButton = screen.getByRole('button', {name: /Add To Cart/i});
-            const subtractButton = screen.getByRole('button', { name: /-/i });
-            const addButton = screen.getByRole('button', { name: /\+/i });
+            const subtractButton = screen.getByRole('button', { name: /subtract button/i });
+            const addButton = screen.getByRole('button', { name: /add button/i });
             expect(addToCartButton).toBeDisabled();
             await user.click(addButton);
             await user.click(subtractButton);
@@ -109,7 +109,7 @@ describe('ShopItem', () => {
 
         it('is not disabled when item amount is more than 0', async () => {
             const addToCartButton = screen.getByRole('button', {name: /Add To Cart/i});
-            const addButton = screen.getByRole('button', { name: /\+/i });
+            const addButton = screen.getByRole('button', { name: /add button/i });
             await user.click(addButton);
             expect(addToCartButton).not.toBeDisabled();
         });

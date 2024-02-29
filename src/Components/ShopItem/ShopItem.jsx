@@ -31,8 +31,8 @@ function ShopItem({ title, price }) {
             <h3>{`$${formattedPrice} USD`}</h3>
             <div className={styles.inputContainer}>
                 <div className={styles.btnContainer}>
-                    <button onClick={() => changeAmount(amount + 1)}>+</button>
-                    <button disabled={amount <= 0} onClick={() => changeAmount(amount - 1)}>-</button>
+                    <button aria-label="add button" onClick={() => changeAmount(amount + 1)}>+</button>
+                    <button aria-label="subtract button" disabled={amount <= 0} onClick={() => changeAmount(amount - 1)}>-</button>
                 </div>
                 <form action="" onSubmit={(e) => handlePurchase(e)}>
                     <label htmlFor="itemAmount">amount</label>
