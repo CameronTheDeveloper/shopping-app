@@ -13,4 +13,4 @@ Welcome to the Shopping App! This online platform offers users a convenient and 
 
 ## Support and Feedback
 For any issues or feedback, please contact me at 
-[cameronposey777@gmail.com]
+cameronposey777@gmail.com
